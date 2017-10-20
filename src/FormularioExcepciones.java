@@ -14,9 +14,26 @@ public class FormularioExcepciones {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 //System.out.println("Hola "+ Nombre.getText());
-                JOptionPane.showMessageDialog(null, "Quiero Dividir "
-                        + Numero1.getText() + " y "+ Numero2.getText());
-            }
+                try {
+
+                    int num1 = Integer.parseInt(Numero1.getText());
+                    int num2 = Integer.parseInt(Numero2.getText());
+                    int resultado = num1 / num2;
+
+
+                 JOptionPane.showMessageDialog(null, "La Division de "
+                        + Numero1.getText() + " y " + Numero2.getText()
+                        + " es " + resultado);
+                 }
+                catch(ArithmeticException ExcepcionAritmetica)
+                {
+                    JOptionPane.showMessageDialog(null, "No puedes dividir entre cero ");
+                }
+                catch(NumberFormatException ExcepcionDeFormatoDeNumero)
+                {
+                    JOptionPane.showMessageDialog(null, "Porfavor solo introduce numeros");
+                }
+                }
         });
     }
 
